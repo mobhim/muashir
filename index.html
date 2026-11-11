@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مؤشّر · هل النتائج الجيدة تبقى سبباً للشراء؟</title>
+<meta name="description" content="1,159 إعلان نتائج ربعية لـ 37 شركة سعودية. شوف وش يسوي السهم قبل الإعلان، يومه، وبعده.">
+<meta name="theme-color" content="#050505">
+<link rel="preload" href="fonts/alexandria-arabic-0.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css?v=11">
+<link rel="stylesheet" href="styles.css?v=11">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <span class="loader-name">مؤشّر</span>
+    <svg viewBox="0 0 220 60" class="loader-line"><path d="M4 50 L40 38 L70 44 L104 22 L132 30 L168 8 L216 14" pathLength="1"/></svg>
+    <span class="loader-pct" id="loader-pct">0</span>
+  </div>
+</div>
+
+<a class="skip" href="#story">تخطَّ إلى المحتوى</a>
+
+<header class="nav glass" id="nav">
+  <a class="brand" href="#top"><i class="brand-mark" aria-hidden="true"></i>مؤشّر</a>
+  <nav aria-label="أقسام الموقع">
+    <a href="#top">الحلبة</a>
+    <a href="#duel">التفاصيل</a>
+    <a href="#story">القصة</a>
+    <a href="#board">الترتيب</a>
+    <a href="#quiz">التحدّي</a>
+    <a href="#method">المنهجية</a>
+  </nav>
+  <button class="nav-search" type="button" data-open-search>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    <span>ابحث عن شركة</span><kbd>Ctrl K</kbd>
+  </button>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <div class="hero-in">
+    <p class="pill glass in"><b>مقارنة حيّة</b><span><span data-v="sample.companies" data-f="int">37</span> شركة · <span data-v="sample.events" data-f="int">1,159</span> إعلان نتائج</span></p>
+    <h1 id="hero-title">مين نتائجها يصدّقها السوق؟</h1>
+    <div class="arena in" id="arena">
+      <button type="button" class="side a" data-slot="a" aria-pressed="false"></button>
+      <div class="mid">
+        <span class="vs" aria-hidden="true">VS</span>
+        <div class="races" id="races"></div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+      <button type="button" class="side b" data-slot="b" aria-pressed="false"></button>
+    </div>
+    <div class="dock-bar in">
+      <button type="button" class="play" id="play" aria-pressed="true"><i aria-hidden="true"></i><span>أوقف العرض</span></button>
+      <div class="presets" id="presets" role="group" aria-label="مقارنات جاهزة"></div>
+    </div>
+    <div class="dock in" id="dock" role="group" aria-label="اختر شركة للمقارنة"></div>
+    <p class="dock-hint in">اضغط على شركة في الحلبة ثم اختر بديلتها من الشريط.</p>
+  </div>
+</section>
+
+<section class="duel" id="duel">
+  <h2 class="split">تفاصيل المقارنة</h2>
+  <p class="duel-names" id="duel-names"></p>
+  <div class="duel-grid">
+    <div class="glass spot duel-card"><h3>وين قوة كل وحدة</h3><div class="chart" id="c-radar"></div></div>
+    <div class="glass spot duel-card"><h3>درجة كل إعلان عبر السنوات</h3><div class="chart" id="c-duel"></div></div>
+  </div>
+</section>
+
+<section class="stats" aria-label="أرقام الدراسة">
+  <div class="stat glass spot"><b class="odo" data-v="sample.events" data-f="int">1,159</b><span>إعلان نتائج</span></div>
+  <div class="stat glass spot"><b class="odo" data-v="sample.companies" data-f="int">37</b><span>شركة</span></div>
+  <div class="stat glass spot up"><b class="odo" data-v="windows.reaction.spread.mean" data-f="pct">+1.97%</b><span>فرق الأعلى والأدنى درجة يوم الإعلان</span></div>
+  <div class="stat glass spot dn"><b class="odo" data-v="windows.drift_60.spread.mean" data-f="pct">−0.08%</b><span>الفرق في 60 يوم بعده</span></div>
+</section>
+
+<section class="story" id="story">
+  <h2 class="split">القصة في ثلاث لقطات</h2>
+  <div class="story-grid">
+    <div class="steps">
+      <article class="step" data-step="0">
+        <b class="step-n">−20</b>
+        <h3>نعطي كل إعلان درجة</h3>
+        <p>سبعة مكوّنات معروفة يوم الإعلان تتحول إلى درجة من 100.</p>
+      </article>
+      <article class="step" data-step="1">
+        <b class="step-n">0</b>
+        <h3>يوم الإعلان السوق يفرّق</h3>
+        <p>الأعلى درجة يرتفع <span class="hl up" data-v="buckets.reaction.4" data-f="pct">+0.76%</span> والأدنى ينزل <span class="hl dn" data-v="buckets.reaction.0" data-f="pct">−1.19%</span> في ثلاثة أيام.</p>
+      </article>
+      <article class="step" data-step="2">
+        <b class="step-n">+62</b>
+        <h3>وبعده؟ ما فيه جديد</h3>
+        <p>الشركات الجيدة تكمل بنفس وتيرتها، والإعلان نفسه ما يضيف تفوق بعد أيامه الأولى.</p>
+      </article>
+    </div>
+    <div class="stage glass" id="stage" aria-hidden="true">
+      <div class="scene" data-scene="0">
+        <div class="gauge" id="g-stage"></div>
+        <ul class="chips" id="chips"></ul>
+      </div>
+      <div class="scene" data-scene="1"><div class="chart" id="c-buckets"></div><p class="scene-cap">العائد غير الطبيعي حسب مجموعة الدرجة، من اليوم −1 إلى +1</p></div>
+      <div class="scene" data-scene="2"><div class="chart" id="c-path"></div><p class="scene-cap">العائد التراكمي من −20 إلى +62 يوم حول الإعلان</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="board" id="board">
+  <h2 class="split">ترتيب الشركات</h2>
+  <div class="board-bar">
+    <div class="seg" role="group" aria-label="رتّب حسب" id="sort">
+      <button type="button" data-sort="score" aria-pressed="true">الدرجة</button>
+      <button type="button" data-sort="react" aria-pressed="false">يوم الإعلان</button>
+      <button type="button" data-sort="drift" aria-pressed="false">بعد 60 يوم</button>
+      <button type="button" data-sort="up" aria-pressed="false">نسبة الارتفاع</button>
+    </div>
+    <div class="chips-row" id="sectors" role="group" aria-label="القطاع"></div>
+  </div>
+  <ol class="rows" id="rows"></ol>
+</section>
+
+<section class="quiz" id="quiz">
+  <h2 class="split">خمّن ردة فعل السوق</h2>
+  <p class="lead">إعلان حقيقي من العينة. السهم ارتفع ولا نزل؟</p>
+  <div class="quiz-card glass spot" id="quiz-card"></div>
+  <p class="quiz-score" id="quiz-score" aria-live="polite"></p>
+</section>
+
+<section class="method" id="method">
+  <h2 class="split">المنهجية بصراحة</h2>
+  <div class="acc">
+    <details class="glass">
+      <summary>كيف قسنا</summary>
+      <ul>
+        <li>العائد غير الطبيعي = عائد السهم ناقص ما يتوقعه نموذج السوق.</li>
+        <li>السوق = متوسط بقية شركات العينة، لأن تاريخ تاسي غير متاح من المصدر.</li>
+        <li>الدرجة تستخدم معلومات يوم الإعلان فقط، والسعر قبله بيومين.</li>
+        <li>الدلالة الإحصائية محسوبة على مواسم النتائج، مو على الإعلانات المنفردة.</li>
+      </ul>
+    </details>
+    <details class="glass">
+      <summary>وش يتغير لو غيّرنا طريقة القياس</summary>
+      <div class="chart" id="c-measures"></div>
+      <p>بثلاث طرق تتفوق الشركات الأعلى درجة بعد الإعلان، لكنها كانت متفوقة قبله بنفس المقدار تقريباً (<span data-v="prior_alpha.spread" data-f="pct">+3.33%</span>).</p>
+    </details>
+    <details class="glass">
+      <summary>حدود الدراسة</summary>
+      <ul>
+        <li>تاريخ الإعلان دقيق ليوم واحد تقريباً.</li>
+        <li>مكوّنان بديلان: مفاجأة المحللين بدل نمو الإيرادات، وبيتا السوق بدل الاستقلال الجيوسياسي.</li>
+        <li>العينة شركات كبيرة مدرجة اليوم، والتغطية غير متساوية بينها.</li>
+        <li>الأرقام قبل تكاليف التداول.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="brand"><i class="brand-mark" aria-hidden="true"></i>مؤشّر</span>
+  <p>دراسة إحصائية لبيانات تاريخية، وليست توصية استثمارية. البيانات من Yahoo Finance. آخر تحديث <span data-v="generated" data-f="raw">—</span>.</p>
+</footer>
+
+<div class="sheet-back" id="sheet-back" hidden></div>
+<aside class="sheet glass" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-name" hidden></aside>
+
+<div class="palette-back" id="palette-back" hidden>
+  <div class="palette glass" role="dialog" aria-modal="true" aria-label="ابحث عن شركة">
+    <div class="palette-in">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="اسم الشركة أو رمزها" aria-label="اسم الشركة أو رمزها">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="palette-list" id="palette-list"></div>
+  </div>
+</div>
+
+<script src="data.js?v=11"></script>
+<script src="app.js?v=11"></script>
+</body>
+</html>

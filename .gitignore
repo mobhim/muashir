@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Rebuilt by `python -m muashir.pipeline`
+data/muashir.db
+data/raw/
+
+# Rebuilt by `python powerbi/generate_pbip.py` (contains a machine-specific folder path)
+powerbi/Muashir.pbip
+powerbi/Muashir.SemanticModel/
+powerbi/Muashir.Report/
+
+# Local tooling
+.claude/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/questions/
+dist/

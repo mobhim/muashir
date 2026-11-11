@@ -1,0 +1,27 @@
+[project]
+name = "muashir"
+version = "0.1.0"
+description = "Event study: does an earnings-quality score predict post-announcement returns on Tadawul?"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0",
+    "numpy",
+    "matplotlib",
+    "statsmodels",
+    "yfinance>=1.0",
+    "lxml",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyterlab"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

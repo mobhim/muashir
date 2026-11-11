@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T12:00:00Z",
+  "title": "Design System: مؤشّر (Muashir)",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "#050505" },
+      "panel": { "role": "neutral", "displayName": "Panel", "canonical": "#14120c" },
+      "gold": { "role": "primary", "displayName": "Gold", "canonical": "#d9b24a" },
+      "gold-hi": { "role": "primary", "displayName": "Gold Highlight", "canonical": "#f4d98a" },
+      "cream": { "role": "neutral", "displayName": "Cream", "canonical": "#f3ead3" },
+      "up": { "role": "tertiary", "displayName": "Up", "canonical": "#46d39a" },
+      "down": { "role": "tertiary", "displayName": "Down", "canonical": "#ff6b6b" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The page question in the opening." },
+      "heading": { "displayName": "Heading", "purpose": "Section headings, revealed word by word." },
+      "title": { "displayName": "Title", "purpose": "Card and step titles." },
+      "body": { "displayName": "Body", "purpose": "Short running text." },
+      "label": { "displayName": "Label", "purpose": "Controls, captions and meta lines." }
+    },
+    "shadows": [
+      { "name": "glass", "value": "inset 0 1px 0 rgb(255 255 255 / 0.1), 0 1.8rem 3rem -1.8rem rgb(0 0 0 / 0.8)", "purpose": "Every glass panel." },
+      { "name": "gold-button", "value": "0 0.8rem 2rem -0.8rem rgb(217 178 74 / 0.8)", "purpose": "Lift under the solid gold button." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All transitions and entrances." },
+      { "name": "word-in", "value": "700ms, 80ms stagger, blur 10px to 0", "purpose": "Headings enter word by word." },
+      { "name": "odometer", "value": "950ms plus 110ms per digit", "purpose": "Stat numbers roll into place once." },
+      { "name": "reel", "value": "46s and 54s linear, opposite directions", "purpose": "Vertical company reels in the opening." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "60rem" },
+      { "name": "phone", "value": "40rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The main action: a gold pill that lifts on hover.",
+      "html": "<button class=\"ds-btn\" dir=\"rtl\">شوف الجواب</button>",
+      "css": ".ds-btn { min-height: 3rem; padding: 0.7rem 2rem; border-radius: 999px; border: 0; font: 600 1rem 'IBM Plex Sans Arabic', sans-serif; background: #d9b24a; color: #050505; cursor: pointer; box-shadow: 0 0.8rem 2rem -0.8rem rgb(217 178 74 / 0.8); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), background-color 0.25s; } .ds-btn:hover { background: #f4d98a; transform: translateY(-2px); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #f4d98a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The second action: a glass pill with a hairline border.",
+      "html": "<button class=\"ds-ghost\" dir=\"rtl\">ابحث عن شركتك</button>",
+      "css": ".ds-ghost { min-height: 3rem; padding: 0.7rem 2rem; border-radius: 999px; border: 1px solid rgb(255 255 255 / 0.1); font: 600 1rem 'IBM Plex Sans Arabic', sans-serif; background: rgb(255 255 255 / 0.05); color: #f3ead3; cursor: pointer; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.25s; } .ds-ghost:hover { border-color: rgb(217 178 74 / 0.7); transform: translateY(-2px); } .ds-ghost:focus-visible { outline: 2px solid #f4d98a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Glass stat",
+      "kind": "card",
+      "refersTo": "glass-panel",
+      "description": "A glass panel holding one rolling number and its label.",
+      "html": "<div class=\"ds-stat\" dir=\"rtl\"><b>1,159</b><span>إعلان نتائج</span></div>",
+      "css": ".ds-stat { width: 14rem; padding: 1.4rem 1.5rem 1.3rem; display: flex; flex-direction: column; gap: 0.4rem; border-radius: 1.4rem; background: rgb(20 18 12 / 0.42); border: 1px solid rgb(255 255 255 / 0.1); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1), 0 1.8rem 3rem -1.8rem rgb(0 0 0 / 0.8); backdrop-filter: blur(16px) saturate(150%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s; } .ds-stat:hover { transform: translateY(-4px); border-color: rgb(217 178 74 / 0.45); } .ds-stat b { font: 800 2.6rem/1.25 'Alexandria', sans-serif; color: #f4d98a; direction: ltr; text-align: end; } .ds-stat span { font: 0.92rem/1.6 'IBM Plex Sans Arabic', sans-serif; color: rgb(243 234 211 / 0.8); }"
+    },
+    {
+      "name": "Segmented control",
+      "kind": "chip",
+      "refersTo": "segment-active",
+      "description": "Sort switch: a pill track with one solid gold segment.",
+      "html": "<div class=\"ds-seg\" dir=\"rtl\"><button aria-pressed=\"true\">الدرجة</button><button aria-pressed=\"false\">يوم الإعلان</button><button aria-pressed=\"false\">بعد 60 يوم</button></div>",
+      "css": ".ds-seg { display: inline-flex; padding: 0.25rem; border-radius: 999px; border: 1px solid rgb(255 255 255 / 0.1); background: rgb(255 255 255 / 0.04); } .ds-seg button { border: 0; background: none; cursor: pointer; padding: 0.45rem 1rem; min-height: 2.4rem; border-radius: 999px; font: 0.9rem 'IBM Plex Sans Arabic', sans-serif; color: rgb(243 234 211 / 0.8); transition: background-color 0.3s cubic-bezier(0.16,1,0.3,1), color 0.3s; } .ds-seg button:hover { color: #f3ead3; } .ds-seg button:focus-visible { outline: 2px solid #f4d98a; outline-offset: 2px; } .ds-seg button[aria-pressed='true'] { background: #d9b24a; color: #050505; font-weight: 600; }"
+    },
+    {
+      "name": "Rank row",
+      "kind": "custom",
+      "refersTo": "rank-row",
+      "description": "A leaderboard row: rank, company, bar and value. Opens the company sheet.",
+      "html": "<button class=\"ds-row\" dir=\"rtl\"><span class=\"ds-rk\">1</span><span class=\"ds-nm\"><b>أرامكو السعودية</b><span>الطاقة · 2222 · 24 إعلان</span></span><span class=\"ds-bar\"><i style=\"width:61%\"></i></span><span class=\"ds-vl\">61.3</span></button>",
+      "css": ".ds-row { display: grid; grid-template-columns: 2.6rem 13rem minmax(6rem, 1fr) 4rem; gap: 1rem; align-items: center; width: 34rem; padding: 0.75rem 1.1rem; border-radius: 1rem; border: 1px solid transparent; background: rgb(255 255 255 / 0.03); color: #f3ead3; cursor: pointer; text-align: start; transition: background-color 0.3s, border-color 0.3s, transform 0.5s cubic-bezier(0.16,1,0.3,1); } .ds-row:hover { background: rgb(217 178 74 / 0.09); border-color: rgb(217 178 74 / 0.4); transform: translateX(-4px); } .ds-row:focus-visible { outline: 2px solid #f4d98a; outline-offset: 3px; } .ds-rk { font: 800 1.1rem 'Alexandria', sans-serif; color: #d9b24a; text-align: center; } .ds-nm b { display: block; font: 600 1rem/1.5 'Alexandria', sans-serif; } .ds-nm span { font: 0.8rem 'IBM Plex Sans Arabic', sans-serif; color: rgb(243 234 211 / 0.62); } .ds-bar { position: relative; height: 0.5rem; border-radius: 999px; background: rgb(255 255 255 / 0.06); direction: ltr; } .ds-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: linear-gradient(90deg, #d9b24a, #f4d98a); } .ds-vl { font: 600 1rem 'Alexandria', sans-serif; text-align: end; direction: ltr; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A night-market screen: black, gold, cream, glass, always moving.",
+    "overview": "Muashir is a night-market screen: a black ground, gold price lines drifting behind everything, cream text, and glass panels that hold the content. The page moves from the first frame and keeps copy to a line or two per section. The owner set the bar as their own Cerebra and Sila sites, so motion, glass and short copy are requirements.",
+    "keyCharacteristics": [
+      "Fixed canvas of drifting gold price lines behind every section",
+      "Glass panels with blur, hairline border and a pointer-following gold spotlight",
+      "Word-by-word headings, odometer numbers, drawn charts",
+      "A sticky stage that changes scene as the reader scrolls",
+      "Tools first: leaderboard, two-company duel, guessing game, company sheet, Ctrl+K search"
+    ],
+    "rules": [
+      { "name": "Gold is the only brand colour", "body": "Green and red never decorate; they mean up and down, and always carry a sign or an arrow.", "section": "colors" },
+      { "name": "One or two lines per section", "body": "Method and limits live in collapsed panels.", "section": "typography" },
+      { "name": "Glass is never nested", "body": "One glass panel per block of content.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the background moving and the copy short.",
+      "Do give every number a sign or a unit.",
+      "Do open new detail in the sheet or the stage before adding a section."
+    ],
+    "donts": [
+      "Don't add a second brand colour or a light section.",
+      "Don't nest glass panels.",
+      "Don't write a paragraph where a number and a line will do.",
+      "Don't show a figure that is not in the pipeline's output."
+    ]
+  }
+}
